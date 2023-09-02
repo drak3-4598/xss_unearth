@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+xss_unearth.egg-info/PKG-INFO
+xss_unearth.egg-info/SOURCES.txt
+xss_unearth.egg-info/dependency_links.txt
+xss_unearth.egg-info/requires.txt
+xss_unearth.egg-info/top_level.txt
