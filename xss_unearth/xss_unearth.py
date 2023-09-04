@@ -53,13 +53,18 @@ if __name__ == "__main__":
         results_folder = "Results"
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
         output_file_path = os.path.join(results_folder, f"xss_results_{timestamp}.log")
+        summary_file_path = os.path.join(results_folder, f"summary_{timestamp}.log")
+        summary_file = open(summary_file_path, "w", encoding="utf-8")
         with open(output_file_path, "w", encoding="utf-8") as output_file:
 
             if len(xss_attacks) > 0:
                 print(f"Found {len(xss_attacks)} potential XSS attacks:\n")
+                summary_file.write(f"Found {len(xss_attacks)} potential XSS attacks:\n")
                 for line_number, line_content in xss_attacks:
                     output_file.write(f"{line_content}\n")
-                print(f"Results saved to '{output_file_path}")
+                    summary_file.write(f"Row {line_number}: {line_content}\n")
+                    summary_file.close()
+                print(f"Results saved to '{output_file_path} and {summary_file_path}")
             else:
                 output_file.write("No XSS attack found.")
                 print("No XSS attack found.")
